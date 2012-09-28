@@ -53,8 +53,8 @@ Torque.modules.layer = function(torque) {
               table      : 'ny_bus',
               column     : 'timestamp',
               steps      : 250,
-              resolution : 3, 
-              cumulative : false, 
+              resolution : 3,
+              cumulative : false,
     	        fps        : 24,
     	        autoplay   : true,
     	        clock      : false,
@@ -67,66 +67,66 @@ Torque.modules.layer = function(torque) {
 
             }
             this.options = _.defaults(options, this._defaults);
-            
+
             this._map     = map;
             this._index   = this.options.zindex;
-            
+
             while (this._map.overlayMapTypes.length < this.options.zindex){
                 this._map.overlayMapTypes.push(null);
             }
-            
+
             this._cartodb = new Backbone.CartoDB({user: this.options.user});
             this.bounds   = new google.maps.LatLngBounds();
-            
+
             torque.clock.enabled = this.options.clock ? this.options.clock : false;
-            torque.clock.set('loading...');
-            
+            torque.clock.set('<span class="loading">loading...</span>');
+
             this.getDeltas();
         },
         pause: function(){
           if (this.running == true){
             this.running = false;
-          } else {            
+          } else {
             this.running = true;
-            this.play();            
+            this.play();
           }
         },
         setOptions: function(new_options){
-            
+
             this.running         = false;
             this.options         = _.defaults(new_options,this._defaults);
-            
+
             torque.clock.enabled = this.options.clock ? this.options.clock : false;
-            torque.clock.set('loading...');            
-            
+            torque.clock.set('<span class="loading">loading...</span>');
+
             this._cartodb  = new Backbone.CartoDB({user: this.options.user});
             this.bounds    = new google.maps.LatLngBounds();
-            
+
             this._map.overlayMapTypes.setAt(this._index, null);
             this.getDeltas();
         },
         run: function() {
             this.start     = new Date(this.options.start).getTime();
             this.end       = new Date(this.options.end).getTime();
-            
+
             this._current  = this.start;
             this._step     = Math.floor((this.end - this.start) / this.options.steps);
-            
+
             this._setupListeners();
-            
+
             this._display = new TimePlayer(this.start, (this.start - this.end),this._step, this.options);
-            
+
             this._map.overlayMapTypes.setAt(this._index, this._display);
-            
+
             this.fitBounds(this.options.fitbounds);
-            
+
             this.running = false;
             torque.clock.clear();
 
             if(this.options.autoplay){
               this.running = true;
               this.play();
-            }            
+            }
             torque.log.info('Layer is now running!');
         },
         _setupListeners: function(){
@@ -151,7 +151,7 @@ Torque.modules.layer = function(torque) {
         getDeltas: function(options) {
             var that = this;
             var sql = "SELECT st_xmax(st_envelope(st_collect(the_geom))) xmax,st_ymax(st_envelope(st_collect(the_geom))) ymax, st_xmin(st_envelope(st_collect(the_geom))) xmin, st_ymin(st_envelope(st_collect(the_geom))) ymin, date_part('epoch',max({0})) max, date_part('epoch',min({0})) min FROM {1}".format(this.options.column, this.options.table);
-        
+
             var timeExtents= this._cartodb.CartoDBCollection.extend({
                 sql: sql
             });
@@ -165,7 +165,7 @@ Torque.modules.layer = function(torque) {
                         that.bounds.extend(new google.maps.LatLng(p.get('ymax'),p.get('xmin')));
                         that.bounds.extend(new google.maps.LatLng((p.get('ymax') + p.get('ymin'))/2,(p.get('xmax') + p.get('xmin')) / 2));
                     });
-                    that.run();                    
+                    that.run();
                 });
         },
         advance: function(){
@@ -188,22 +188,22 @@ Torque.modules.layer = function(torque) {
             }
             var date = new Date(this._current*1000);
             var date_arry = date.toString().substr(4).split(' ');
-            
+
             torque.clock.set('<span id="ow_month">' + date_arry[0] + '</span> <span id="ow_year">' + date_arry[2] + '</span>');
             torque.subtitles.set(date);
 
             this._display.set_time((this._current-this.start)/this._step);
-    
+
             if (this.running){
-                setTimeout(function(){this.play()}.bind(this), pause + 1000*1/this.options.fps); 
-            }         
+                setTimeout(function(){this.play()}.bind(this), pause + 1000*1/this.options.fps);
+            }
         }
     });
 }
 
 Torque.modules.clock = function(torque) {
   torque.clock = {};
-  
+
   torque.clock.clear = function() {
     $('.torque_time').html('');
   };
@@ -214,49 +214,49 @@ Torque.modules.clock = function(torque) {
     var clockger = window.console;
     if (torque.clock.enabled) {
       $('.torque_time').html(msg);
-    } 
+    }
   };
 };
 
 Torque.modules.subtitles = function(torque) {
   torque.subtitles = {
     subs: [
-            { 
+            {
               from: new Date("March 01, 1913 00:00:00"),
               to:   new Date("July 01, 1914 00:00:00"),
               sub: "Pre war"
             },
-            { 
+            {
               from: new Date("August 01, 1914 00:00:00"),
               to:   new Date("February 01, 1915 00:00:00"),
               sub: "War begins with Germany"
             },
-            { 
+            {
               from: new Date("February 02, 1915 00:00:00"),
               to:   new Date("October 01, 1916 00:00:00"),
               sub: "North Sea naval blockade"
             },
-            { 
+            {
               from: new Date("October 02, 1917 00:00:00"),
               to:   new Date("April 01, 1917 00:00:00"),
               sub: "Atlantic U-boat warfare"
             },
-            { 
+            {
               from: new Date("April 02, 1917 00:00:00"),
               to:   new Date("September 01, 1917 00:00:00"),
               sub: "USA enters war"
             },
-            { 
+            {
               from: new Date("September 02, 1917 00:00:00"),
               to:   new Date("November 01, 1918 00:00:00"),
               sub: "Destroyers begin to escort convoys in Atlantic"
             },
-            { 
+            {
               from: new Date("November 02, 1918 00:00:00"),
               to:   new Date("August 01, 1920 00:00:00"),
               sub: "End of WWI"
             },
-            { 
+            {
               from: new Date("August 02, 1920 00:00:00"),
               to:   new Date("August 01, 1925 00:00:00"),
               sub: "Trade routes resume"
@@ -264,19 +264,19 @@ Torque.modules.subtitles = function(torque) {
 
           ]
   };
-  
+
   torque.subtitles.clear = function() {
     $('.torque_subs').html('');
   };
-  torque.subtitles.set = function(date) {    
+  torque.subtitles.set = function(date) {
     $.each(this.subs, function(){
       if(this.from < date && this.to > date){
-        torque.subtitles._update(this.sub);    
+        torque.subtitles._update(this.sub);
       }
-    });    
+    });
   };
-  torque.subtitles._update = function(msg) { 
-    $('.torque_subs').html(msg);    
+  torque.subtitles._update = function(msg) {
+    $('.torque_subs').html(msg);
   };
 };
 
