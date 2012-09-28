@@ -182,6 +182,21 @@ var OldWeatherMap = Class.extend({
 
 window.map = new OldWeatherMap();
 
+
+function resize() {
+  $(".canvas").animate({ height: window.innerHeight - 300 }, 150);
+}
+
 $(document).ready(function() {
-  $(".canvas").css({ height: $(document).height() - 300});
+
+  $(".canvas").css({ height: window.innerHeight - 300});
+
+  var doit;
+
+  $(window).on("resize", function() {
+    clearTimeout(doit);
+    doit = setTimeout(function(){ resize(); }, 300);
+  });
+
+
 });
