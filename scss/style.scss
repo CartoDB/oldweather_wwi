@@ -262,32 +262,42 @@ h1 {
     color: #FFF;
     line-height: 19px;
     clear: both;
+
+    a { color: #fff; }
   }
 
   &.left {
+
     h3 {
       float: right;
       text-align: left;
       font-weight:bold;
     }
+
     .text {
       float: right;
       text-align: left;
       margin-right: 90px;
     }
+
   }
+
   &.right {
+
     h3 {
       float: left;
       text-align: right;
       font-weight:bold;
     }
+
     .text {
       float: left;
       text-align: right;
       margin-left: 90px;
     }
+
   }
+
   &.center {
     position: absolute;
     width: 260px;
