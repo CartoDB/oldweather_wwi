@@ -113,6 +113,56 @@ h1 {
   height: 395px;
   margin-bottom: -5px;
 
+  .playButton {
+    display: none;
+
+    $width: 248px;
+    $height: 180px;
+
+    position:absolute;
+
+    top: 50%;
+    left: 50%;
+
+    padding-top: 68px;
+
+    margin-top: -1*$height/2 - 30px;
+    margin-left: -1*$width/2;
+
+    width: $width;
+    height: $height;
+
+    text-align: center;
+
+    border-radius: 288px;
+    background-color: #111;
+    opacity: 0.8;
+    color: #FFF;
+    box-shadow: 0px 0px 0px 4px #666;
+    cursor: pointer;
+    font-family: helvetica, verdana, arial;
+    font-size: 13px;
+
+    z-index: 1000;
+
+    .triangle {
+      border-color: transparent;
+      border-left-color: #FFF;
+      margin: 10px 0 15px 105px;
+      width: 0;
+      border-style: solid;
+      border-width: 30px 0px 30px 60px;
+
+      @include transition-property(all);
+      @include transition-duration(200ms);
+
+      &:hover {
+        border-left-color: #666;
+      }
+    }
+
+  }
+
   .cartodb_logo {
 
     @include size(69px, 27px);
@@ -140,67 +190,6 @@ h1 {
   }
 }
 
-
-.buttonLayer {
-  display: inline-block;
-  background-color: transparent;
-  position: absolute;
-  top: 0px;
-  margin-top: 50px;
-  left: 0px;
-  z-index: 99;
-  display: inline-block;
-  width: 100%;
-  height: 288px;
-  text-align: center;
-
-  .playButton {
-    display: none;
-
-    $width: 248px;
-    $height: 180px;
-
-    position:absolute;
-
-    top: 50%;
-    left: 50%;
-    padding-top: 68px;
-
-    margin-top: -1*$height/2;
-    margin-left: -1*$width/2;
-
-    width: $width;
-    height: $height;
-
-    margin-top: 100px;
-
-    border-radius: 288px;
-    background-color: #111;
-    opacity: 0.8;
-    color: #FFF;
-    box-shadow: 0px 0px 0px 4px #666;
-    cursor: pointer;
-    font-family: helvetica, verdana, arial;
-    font-size: 13px;
-
-    .triangle {
-      border-color: transparent;
-      border-left-color: #FFF;
-      margin: 10px 0 15px 105px;
-      width: 0;
-      border-style: solid;
-      border-width: 30px 0px 30px 60px;
-
-      @include transition-property(all);
-      @include transition-duration(200ms);
-
-      &:hover {
-        border-left-color: #666;
-      }
-    }
-
-  }
-}
 
 .lowerButtonLayer {
   left: 50%;

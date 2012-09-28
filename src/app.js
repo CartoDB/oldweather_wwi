@@ -20,6 +20,11 @@ var OldWeatherMap = Class.extend({
     });
 
 
+
+    google.maps.event.addDomListener(window, 'load', function() {
+      $(".playButton").fadeIn(250, "easeOutQuad");
+    });
+
     google.maps.event.addListener(this.map, 'zoom_changed', function() {
       var zoom = this.getZoom();
 
@@ -178,9 +183,6 @@ var OldWeatherMap = Class.extend({
 });
 
 window.map = new OldWeatherMap();
-
 $(document).ready(function() {
   $(".canvas").css({ height: $(document).height() - 300});
-  $(".playButton").fadeIn(250, "easeOutQuad");
-
 });
