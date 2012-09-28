@@ -27,6 +27,12 @@ var OldWeatherMap = Class.extend({
     this.map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
     this.map.setOptions({
       scrollwheel: false,
+      panControl: false,
+      //zoomControl: false,
+      mapTypeControl: false,
+      scaleControl: false,
+      streetViewControl: false,
+      overviewMapControl: false,
       styles: map_style.google_maps_customization_style
     });
 
