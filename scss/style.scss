@@ -7,7 +7,6 @@ h1 {
   font-family: "Georgia", "Times New Roman", serif;
   font-size: 17px;
   color: #333;
-  font-weight: lighter;
   padding: 0;
   margin: 0;
 }
@@ -54,10 +53,20 @@ h1 {
   }
 
   .title {
-    margin-left: 160px;
-    margin-top: 22px;
+    margin-left: 155px;
+    margin-top: 27px;
     float: left;
     width: 160px;
+
+    h1 { font-family: "Helvetica", sans-serif; font-size: 13px; color:#666; }
+
+    h1 a {
+      color:#666;
+      @include transition-property(color);
+      @include transition-duration(300ms);
+    }
+
+    h1 a:hover { color: #1CAAAB; }
   }
 
   .ribbon {
@@ -87,7 +96,10 @@ h1 {
       font-size: 13px;
       font-family: "Helvetica", sans-serif;
 
-      &:hover { text-decoration: underline; }
+      @include transition-property(color);
+      @include transition-duration(300ms);
+
+      &:hover { color: #333; text-decoration: underline; }
     }
 
   }
