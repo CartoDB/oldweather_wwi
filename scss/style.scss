@@ -546,7 +546,21 @@ h1 {
   z-index: 1000;
 
   .zoom_in,
-  .zoom_out { display:block; position:relative; width: $zoomWidth; height: $zoomHeight; cursor: pointer; }
+  .zoom_out {
+    display:block;
+    position:relative;
+    width:  $zoomWidth;
+    height: $zoomHeight;
+    cursor: pointer;
+  }
+
+  .zoom_in.disabled {
+    background: transparent url($url) no-repeat -3*$zoomWidth 0;
+  }
+
+  .zoom_out.disabled {
+    background: transparent url($url) no-repeat -3*$zoomWidth -1*$zoomHeight;
+  }
 
   .zoom_in {
     background: transparent url($url) no-repeat 0 0;
@@ -560,4 +574,6 @@ h1 {
     &:active { background: transparent url($url) no-repeat -2*$zoomWidth -1*$zoomHeight; }
   }
 }
+
+
 

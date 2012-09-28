@@ -10,6 +10,19 @@ var OldWeatherMap = Class.extend({
       minZoom: 1
     });
 
+    google.maps.event.addListener(this.map, 'zoom_changed', function() {
+      var zoom = this.getZoom();
+
+      $(".zoom_in, .zoom_out").removeClass("disabled");
+
+      if (zoom <= 1) {
+        $(".zoom_out").addClass("disabled");
+      } else if (zoom >= 5) {
+        $(".zoom_in").addClass("disabled");
+      }
+
+    });
+
     var map_style = {};
     map_style.google_maps_customization_style = [{
       stylers: [{ invert_lightness: true },
@@ -25,6 +38,8 @@ var OldWeatherMap = Class.extend({
     ];
 
     this.map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+
+
     this.map.setOptions({
       scrollwheel: false,
       panControl: false,
@@ -84,6 +99,26 @@ var OldWeatherMap = Class.extend({
 
   bindButtons: function() {
     var self = this;
+
+
+    $(".zoom_in").on("click", function() {
+      var zoom = window.map.map.getZoom();
+
+      if (zoom < 5) {
+        window.map.map.setZoom(zoom + 1);
+      }
+
+    });
+
+    $(".zoom_out").on("click", function() {
+      var zoom = window.map.map.getZoom();
+
+      if (zoom > 0) {
+        window.map.map.setZoom(zoom - 1);
+      }
+
+    });
+
     // play / pause
     $('.playButton, .pauseButtonLayer').click(function(){
       self.torque.pause();
