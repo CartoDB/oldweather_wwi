@@ -1,13 +1,22 @@
+var
+CONFIG = {
+  center: new google.maps.LatLng( 30.95940879245423, -0.609375),
+  zoom: 2,
+  minZoom: 1,
+  maxZoom: 5
+};
+
 var OldWeatherMap = Class.extend({
   initMap: function() {
 
     // initialise the google map
     this.map = new google.maps.Map(document.getElementById('oldWeatherMap'), {
-      center: new google.maps.LatLng( 30.95940879245423, -0.609375),
-      zoom: 2,
+      center: CONFIG.center,
+      zoom: CONFIG.zoom,
       mapTypeId: google.maps.MapTypeId.SATELLITE,
       mapTypeControl: false,
-      minZoom: 1
+      minZoom: CONFIG.minZoom,
+      maxZoom: CONFIG.maxZoom
     });
 
     google.maps.event.addListener(this.map, 'zoom_changed', function() {
@@ -15,9 +24,9 @@ var OldWeatherMap = Class.extend({
 
       $(".zoom_in, .zoom_out").removeClass("disabled");
 
-      if (zoom <= 1) {
+      if (zoom <= CONFIG.minZoom) {
         $(".zoom_out").addClass("disabled");
-      } else if (zoom >= 5) {
+      } else if (zoom >= CONFIG.maxZoom) {
         $(".zoom_in").addClass("disabled");
       }
 
@@ -103,20 +112,12 @@ var OldWeatherMap = Class.extend({
 
     $(".zoom_in").on("click", function() {
       var zoom = window.map.map.getZoom();
-
-      if (zoom < 5) {
-        window.map.map.setZoom(zoom + 1);
-      }
-
+      window.map.map.setZoom(zoom + 1);
     });
 
     $(".zoom_out").on("click", function() {
       var zoom = window.map.map.getZoom();
-
-      if (zoom > 0) {
-        window.map.map.setZoom(zoom - 1);
-      }
-
+      window.map.map.setZoom(zoom - 1);
     });
 
     // play / pause
