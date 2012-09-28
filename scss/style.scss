@@ -200,7 +200,9 @@ h1 {
 }
 
 .bigRibbon {
+
   height: 150px;
+
   &.left {
     background-color: #1CAAAB;
     width: 48%;
@@ -228,18 +230,22 @@ h1 {
     clear: both;
   }
   .text {
+    width: 290px;
+
     font-family: Helvetica, Verdana, Arial;
     font-size: 15px;
+    text-shadow: 0px 1px 1px #0F6161;
+    font-weight: 100;
     color: #FFF;
-    text-shadow: 0px 1px 1px #0F6060;
-    width: 290px;
-    line-height: 16.5px;
+    line-height: 19px;
     clear: both;
   }
+
   &.left {
     h3 {
       float: right;
       text-align: left;
+      font-weight:bold;
     }
     .text {
       float: right;
@@ -251,6 +257,7 @@ h1 {
     h3 {
       float: left;
       text-align: right;
+      font-weight:bold;
     }
     .text {
       float: left;
@@ -289,6 +296,7 @@ h1 {
       }
     }
     .content {
+
       /*background-color: #1CAAAB;
       height: 150px;
       width:260px;
@@ -306,23 +314,31 @@ h1 {
       vertical-align: center;
       text-align: center;
        */
+
+      width: 260px;
+      height: 150px;
+      left: 50%;
+      margin: 25px -130px;
+      position: absolute;
+
       background-color: #1CAAAB;
       background-image: url("/img/leafs.png");
       background-position: center center;
       background-repeat: no-repeat;
       color: #FFFFFF;
+
       display: inline-block;
       font-family: Georgia;
       font-size: 25px;
-      height: 150px;
-      left: 50%;
-      margin: 25px -130px;
-      position: absolute;
+
       text-align: center;
-      text-shadow: 0px 1px 1px #0F6060;
       top: -10px;
-      width: 260px;
       z-index: 99;
+
+      #ow_month, #ow_year {
+        text-shadow: 0px 1px 2px #0F6161;
+      }
+
       #ow_month {
         font-size: 22px;
         width: 100%;
@@ -330,13 +346,13 @@ h1 {
         text-align: center;
         margin-top: 30px;
       }
+
       #ow_year {
         width: 100%;
         display: inline-block;
         text-align: center;
         font-size: 76px;
         line-height: 42px;
-        text-shadow: 0px 2px 2px #999;
       }
     }
   }
