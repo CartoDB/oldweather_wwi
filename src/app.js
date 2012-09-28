@@ -23,6 +23,11 @@ var OldWeatherMap = Class.extend({
 
     google.maps.event.addDomListener(window, 'load', function() {
       $(".playButton").fadeIn(250, "easeOutQuad");
+
+
+      $('.torque_time').html('<span id="ow_month">Feb</span><span id="ow_year">1913</span>');
+      $('.torque_time span').hide().fadeIn(250);
+
     });
 
     google.maps.event.addListener(this.map, 'zoom_changed', function() {
@@ -173,16 +178,11 @@ var OldWeatherMap = Class.extend({
     this.initMap();
     this.initTorque();
     this.bindButtons();
-
-    setTimeout(function() {
-      $('.torque_time').html('<span id="ow_month">Feb</span><span id="ow_year">1913</span>');
-      $('.torque_time span').hide().fadeIn('slow');
-    },3000);
-
   }
 });
 
 window.map = new OldWeatherMap();
+
 $(document).ready(function() {
   $(".canvas").css({ height: $(document).height() - 300});
 });
