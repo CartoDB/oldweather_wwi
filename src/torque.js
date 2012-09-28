@@ -254,7 +254,7 @@ Torque.modules.subtitles = function(torque) {
             { 
               from: new Date("November 02, 1918 00:00:00"),
               to:   new Date("August 01, 1920 00:00:00"),
-              sub: "End of WW1"
+              sub: "End of WWI"
             },
             { 
               from: new Date("August 02, 1920 00:00:00"),
