@@ -1,6 +1,5 @@
-
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
@@ -9,30 +8,35 @@
     <link type="text/css" rel="stylesheet" media="all" href="css/style.css"></link>
     <link type="text/css" rel="stylesheet" media="all" href="font/font-awesome.css"></link>
   </head>
-  <body >
+  <body>
+
     <div class="header">
-      <div class="title"><h1>UK Navy of WWI</h1></div>
+      <div class="inner">
+      <div class="title"><h1>A Zooniverse dataset</h1></div>
       <div class="link"><a href="http://www.oldweather.org/">visit the OldWeather project</a></div>
       <div class="ribbon">
-        <div class="ribbonBody">
-          <div class="small">old</div><div class="large">Weather</div>
-        </div>
-        <div class="ribbonEnd"></div>
+          <h2>UK Navy of WWI</h2>
       </div>
-
+      </div>
     </div>
+
     <div class="buttonLayer">
       <div class="playButton">
         <div class="triangle"></div>
         <span>Click to play the animation</span>
       </div>
     </div>
-    <div id="oldWeatherMap" class="map">
+    
+            
+    <div class="canvas">
+      <a class="cartodb_logo" href="http://www.cartodb.com" target="_blank">CartoDB</a>
+      <div id="oldWeatherMap" class="map"></div> 
     </div>
+
     <div class="lowerButtonLayer">
-        <a href="#pause" id='pause'> <span class="play"><i class="icon-play"></i> play</span><span class="pause"><i class="icon-pause"></i> pause</span></a>
-        <a href="#live" id='live' class="selected"><i class="icon-globe"></i> live</a>
-        <a href="#heatmap" id='heatmap'><i class="icon-fire"></i> heatmap</a>
+      <a href="#pause" id='pause'> <span class="play"><i class="icon-play"></i> play</span><span class="pause"><i class="icon-pause"></i> pause</span></a>
+      <a href="#live" id='live' class="selected"><i class="icon-globe"></i> live</a>
+      <a href="#heatmap" id='heatmap'><i class="icon-fire"></i> heatmap</a>
     </div>
     <div class="bigRibbon left">
       <h3>ABOUT THIS VISUALIZATION</h3>
@@ -68,14 +72,12 @@
     </div>
 
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="lib/oldWeather.lib.min.js"></script>
+    <script type="text/javascript" src="src/app.vendors.min.js"></script>
+    <script type="text/javascript" src="src/app.js"></script>
+    <script src="http://use.edgefonts.net/alexa-std.js"></script>
 
-
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-  <script type="text/javascript" src="lib/oldWeather.lib.min.js"></script>
-  <script type="text/javascript" src="src/app.vendors.min.js"></script>
-  <script type="text/javascript" src="src/app.js"></script>
-  <script src="http://use.edgefonts.net/alexa-std.js"></script>
-
-</body>
+  </body>
 </html>

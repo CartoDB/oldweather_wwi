@@ -1,12 +1,13 @@
 var OldWeatherMap = Class.extend({
   initMap: function() {
-  // initialise the google map
+
+    // initialise the google map
     this.map = new google.maps.Map(document.getElementById('oldWeatherMap'), {
-        center: new google.maps.LatLng( 30.95940879245423, -0.609375),
-        zoom: 2,
-        mapTypeId: google.maps.MapTypeId.SATELLITE,
-        mapTypeControl: false,
-        minZoom: 1
+      center: new google.maps.LatLng( 30.95940879245423, -0.609375),
+      zoom: 2,
+      mapTypeId: google.maps.MapTypeId.SATELLITE,
+      mapTypeControl: false,
+      minZoom: 1
     });
 
     var map_style = {};
@@ -15,15 +16,19 @@ var OldWeatherMap = Class.extend({
         { weight: 1 },
         { saturation: -100 },
         { lightness: -40 }
-      ]},{
-        elementType: "labels",
-        stylers: [
-          { visibility: "simplified" }
-        ]
-      }
+        ]},{
+          elementType: "labels",
+          stylers: [
+            { visibility: "simplified" }
+          ]
+        }
     ];
+
     this.map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
-    this.map.setOptions({styles: map_style.google_maps_customization_style});
+    this.map.setOptions({
+      scrollwheel: false,
+      styles: map_style.google_maps_customization_style
+    });
 
     this.livemap = {
       user       : 'viz2',
@@ -60,7 +65,7 @@ var OldWeatherMap = Class.extend({
   },
 
   initTorque: function() {
-  // configure Torque - default is livemap
+    // configure Torque - default is livemap
     var self = this;
     this.torque = null;
     Torque(function(env) {
@@ -73,7 +78,7 @@ var OldWeatherMap = Class.extend({
 
   bindButtons: function() {
     var self = this;
-        // play / pause
+    // play / pause
     $('.playButton, .pauseButtonLayer').click(function(){
       self.torque.pause();
       if(!$('.map').is('.playing')) {
