@@ -224,58 +224,44 @@ Torque.modules.subtitles = function(torque) {
             { 
               from: new Date("March 01, 1913 00:00:00"),
               to:   new Date("July 01, 1914 00:00:00"),
-              sub: "Pre WW1"
+              sub: "Pre war"
             },
             { 
               from: new Date("August 01, 1914 00:00:00"),
               to:   new Date("February 01, 1915 00:00:00"),
-              sub: "WW1: War begins with Germany"
+              sub: "War begins with Germany"
             },
             { 
               from: new Date("February 02, 1915 00:00:00"),
-              to:   new Date("June 01, 1916 00:00:00"),
-              sub: "WW1: North Sea blockade"
+              to:   new Date("October 01, 1916 00:00:00"),
+              sub: "North Sea naval blockade"
             },
             { 
-              from: new Date("June 02, 1916 00:00:00"),
-              to:   new Date("November 01, 1916 00:00:00"),
-              sub: "WW1: Cape Verde"
-            },
-            { 
-              from: new Date("November 02, 1917 00:00:00"),
+              from: new Date("October 02, 1917 00:00:00"),
               to:   new Date("April 01, 1917 00:00:00"),
-              sub: "WW1: Atlantic Submarine warfare"
+              sub: "Atlantic U-boat warfare"
             },
             { 
               from: new Date("April 02, 1917 00:00:00"),
-              to:   new Date("August 01, 1917 00:00:00"),
-              sub: "WW1: USA enters WW1"
+              to:   new Date("September 01, 1917 00:00:00"),
+              sub: "USA enters war"
             },
             { 
-              from: new Date("August 02, 1917 00:00:00"),
-              to:   new Date("February 01, 1918 00:00:00"),
-              sub: "WW1: Destroyers begin to escort convoys in Atlantic"
-            },
-            { 
-              from: new Date("February 02, 1918 00:00:00"),
+              from: new Date("September 02, 1917 00:00:00"),
               to:   new Date("November 01, 1918 00:00:00"),
-              sub: "WW1: Southern Hemisphere convoys from Dakar"
+              sub: "Destroyers begin to escort convoys in Atlantic"
             },
             { 
               from: new Date("November 02, 1918 00:00:00"),
-              to:   new Date("July 01, 1919 00:00:00"),
-              sub: "WW1: End of WW1"
-            },
-            { 
-              from: new Date("July 02, 1919 00:00:00"),
               to:   new Date("August 01, 1920 00:00:00"),
-              sub: "Suez canal trade route"
+              sub: "End of WW1"
             },
             { 
               from: new Date("August 02, 1920 00:00:00"),
               to:   new Date("August 01, 1925 00:00:00"),
-              sub: "Asian diplomacy & Yangtze river convoys"
+              sub: "Trade routes resume"
             }
+
           ]
   };
   
