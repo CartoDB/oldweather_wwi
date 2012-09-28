@@ -24,7 +24,6 @@ var OldWeatherMap = Class.extend({
     google.maps.event.addDomListener(window, 'load', function() {
       $(".playButton").fadeIn(250, "easeOutQuad");
 
-
       $('.torque_time').html('<span id="ow_month">Feb</span><span id="ow_year">1913</span>');
       $('.torque_time span').hide().fadeIn(250);
 

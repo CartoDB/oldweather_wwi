@@ -226,6 +226,12 @@ h1 {
   }
 }
 
+.bigRibbonContainer {
+  height: 150px;
+  width:100%;
+  background:#333;
+}
+
 .bigRibbon {
 
   height: 150px;
@@ -309,6 +315,7 @@ h1 {
     display: inline-block;
     margin-left: -130px;
     left: 50%;
+
     .innerRibbon {
       height: 0px;
       background-color: transparent;
@@ -371,6 +378,16 @@ h1 {
       text-align: center;
       top: -10px;
       z-index: 99;
+
+
+    .loading {
+      position: absolute;
+      top: 65px;
+      width: 100px;
+      left: 50%;
+      margin-left: -50px;
+
+    }
 
       #ow_month, #ow_year {
         text-shadow: 0px 1px 2px #0F6161;
