@@ -3,6 +3,8 @@
 @import "compass/css3";
 @import "helpers";
 
+a { color: #333; }
+
 h1 {
   font-family: "Georgia", "Times New Roman", serif;
   font-size: 17px;
@@ -165,6 +167,7 @@ h1 {
     cursor: pointer;
     font-family: helvetica, verdana, arial;
     font-size: 13px;
+
     .triangle {
       border-color: transparent;
       border-left-color: #FFF;
@@ -172,7 +175,15 @@ h1 {
       width: 0;
       border-style: solid;
       border-width: 30px 0px 30px 60px;
+
+      @include transition-property(all);
+      @include transition-duration(200ms);
+
+      &:hover {
+        border-left-color: #666;
+      }
     }
+
   }
 }
 
@@ -446,12 +457,13 @@ h1 {
   width: 500px;
   margin-left: -250px;
   color: #FFF;
-  text-shadow: 0px 1px 1px #AAA;
+  text-shadow: 0px 1px 1px #333;
   font-size: 15px;
   display: inline-block;
   font-family: Helvetica, verdana, arial;
   text-align: center;
   display: none;
+
   .torque_subs {
     &:before {
       color: #FFF;
@@ -506,6 +518,36 @@ h1 {
       height: 33px;
       margin-right: 3px;
     }
+  }
+}
+
+
+/* Zoom */
+
+#zoom {
+
+  $zoomWidth: 43px;
+  $zoomHeight: 36px; // distance from the top of the canvas until the middle line
+
+  @include position(10px, 10px, false, false);
+
+  $url: "../img/map-zoom.png";
+
+  z-index: 1000;
+
+  .zoom_in,
+  .zoom_out { display:block; position:relative; width: $zoomWidth; height: $zoomHeight; cursor: pointer; }
+
+  .zoom_in {
+    background: transparent url($url) no-repeat 0 0;
+    &:hover  { background: transparent url($url) no-repeat -1*$zoomWidth 0; }
+    &:active { background: transparent url($url) no-repeat -2*$zoomWidth 0; }
+  }
+
+  .zoom_out {
+    background: transparent url($url) no-repeat 0 -1*$zoomHeight;
+    &:hover  { background: transparent url($url) no-repeat -1*$zoomWidth -1*$zoomHeight; }
+    &:active { background: transparent url($url) no-repeat -2*$zoomWidth -1*$zoomHeight; }
   }
 }
 
