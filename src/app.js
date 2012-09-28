@@ -19,6 +19,7 @@ var OldWeatherMap = Class.extend({
       maxZoom: CONFIG.maxZoom
     });
 
+
     google.maps.event.addListener(this.map, 'zoom_changed', function() {
       var zoom = this.getZoom();
 
@@ -128,12 +129,6 @@ var OldWeatherMap = Class.extend({
         // $('.pauseButtonLayer').fadeIn();
         $('.buttonLayer').fadeOut();
         $('.subsContent').fadeIn();
-
-
-        $(".canvas").animate({ height: $(document).height() - 300}, { duration: 250, easing: "easeOutQuad" });
-
-        map.map.panTo(new google.maps.LatLng( 45.959, -0.609375));
-
       } else {
         $('.pauseButtonLayer').fadeOut();
         $('.buttonLayer').fadeIn();
@@ -185,5 +180,7 @@ var OldWeatherMap = Class.extend({
 window.map = new OldWeatherMap();
 
 $(document).ready(function() {
+  $(".canvas").css({ height: $(document).height() - 300});
+  $(".playButton").fadeIn(250, "easeOutQuad");
 
 });
