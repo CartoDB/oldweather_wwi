@@ -28,7 +28,7 @@ var OldWeatherMap = Class.extend({
     this.map.setOptions({
       scrollwheel: false,
       panControl: false,
-      //zoomControl: false,
+      zoomControl: false,
       mapTypeControl: false,
       scaleControl: false,
       streetViewControl: false,
