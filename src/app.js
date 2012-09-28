@@ -33,6 +33,7 @@ var OldWeatherMap = Class.extend({
     });
 
     var map_style = {};
+
     map_style.google_maps_customization_style = [{
       stylers: [{ invert_lightness: true },
         { weight: 1 },
@@ -98,6 +99,7 @@ var OldWeatherMap = Class.extend({
     // configure Torque - default is livemap
     var self = this;
     this.torque = null;
+
     Torque(function(env) {
       Torque.app = new env.app.Instance();
       self.torque = new Torque.app.addLayer(self.map, self.livemap);
@@ -108,7 +110,6 @@ var OldWeatherMap = Class.extend({
 
   bindButtons: function() {
     var self = this;
-
 
     $(".zoom_in").on("click", function() {
       var zoom = window.map.map.getZoom();
@@ -127,6 +128,12 @@ var OldWeatherMap = Class.extend({
         // $('.pauseButtonLayer').fadeIn();
         $('.buttonLayer').fadeOut();
         $('.subsContent').fadeIn();
+
+
+        $(".canvas").animate({ height: $(document).height() - 300}, 250);
+
+        map.map.panTo(new google.maps.LatLng( 45.959, -0.609375));
+
       } else {
         $('.pauseButtonLayer').fadeOut();
         $('.buttonLayer').fadeIn();
@@ -157,8 +164,8 @@ var OldWeatherMap = Class.extend({
       $('.lowerButtonLayer a').removeClass('selected');
       $('.lowerButtonLayer a#live').addClass('selected');
 
-
       return false;
+
     })
   },
 
@@ -166,6 +173,7 @@ var OldWeatherMap = Class.extend({
     this.initMap();
     this.initTorque();
     this.bindButtons();
+
     setTimeout(function() {
       $('.torque_time').html('<span id="ow_month">Feb</span><span id="ow_year">1913</span>');
       $('.torque_time span').hide().fadeIn('slow');

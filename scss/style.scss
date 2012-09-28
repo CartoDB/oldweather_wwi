@@ -116,7 +116,7 @@ h1 {
   .cartodb_logo {
 
     @include size(69px, 27px);
-    @include position(false, false, 7px, 75px);
+    @include position(false, false, 7px, 70px);
 
     background:url('http://cartodb.s3.amazonaws.com/embed/embed_sprite.png') no-repeat -61px 0;
 
@@ -462,7 +462,7 @@ h1 {
 .subsContent {
   position: absolute;
   z-index: 99;
-  top: 430px;
+  bottom: 43px;
   left: 50%;
   width: 500px;
   margin-left: -250px;
