@@ -133,7 +133,7 @@ var OldWeatherMap = Class.extend({
     });
 
     // play / pause
-    $('.playButton, .pauseButtonLayer').click(function(){
+    $('.playButton, .pauseButtonLayer, .torque_time').click(function(){
       self.torque.pause();
       if(!$('.map').is('.playing')) {
         // $('.pauseButtonLayer').fadeIn();
