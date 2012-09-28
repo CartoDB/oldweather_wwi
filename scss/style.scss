@@ -240,7 +240,7 @@ h1 {
     background-color: #1CAAAB;
     width: 48%;
     float: left;
-    background-image: url('/img/ribbonLeft.png');
+    background-image: url('../img/ribbonLeft.png');
     background-repeat: no-repeat;
     background-position: right center;
   }
@@ -248,7 +248,7 @@ h1 {
     background-color: #1CAAAB;
     float: right;
     width: 48%;
-    background-image: url('/img/ribbonRight.png');
+    background-image: url('../img/ribbonRight.png');
     background-repeat: no-repeat;
     background-position: left center;
   }
@@ -345,7 +345,7 @@ h1 {
       height: 150px;
       width:260px;
       display: inline-block;
-      background-image: url('/img/leafs.png');
+      background-image: url('../img/leafs.png');
       background-repeat: no-repeat;
       background-position: center center;
       color: #FFF;
@@ -366,7 +366,7 @@ h1 {
       position: absolute;
 
       background-color: #1CAAAB;
-      background-image: url("/img/leafs.png");
+      background-image: url("../img/leafs.png");
       background-position: center center;
       background-repeat: no-repeat;
       color: #FFFFFF;
