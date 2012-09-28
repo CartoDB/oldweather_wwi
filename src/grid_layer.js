@@ -363,7 +363,9 @@ String.prototype.format = (function(i, safe, arg) {
       }
       return str;
   }
-  format.native = String.prototype.format;
+  
+  //format.native = String.prototype.format;
+  
   return format;
 })();
 
