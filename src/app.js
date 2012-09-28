@@ -130,7 +130,7 @@ var OldWeatherMap = Class.extend({
         $('.subsContent').fadeIn();
 
 
-        $(".canvas").animate({ height: $(document).height() - 300}, 250);
+        $(".canvas").animate({ height: $(document).height() - 300}, { duration: 250, easing: "easeOutQuad" });
 
         map.map.panTo(new google.maps.LatLng( 45.959, -0.609375));
 
