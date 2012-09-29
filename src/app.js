@@ -187,7 +187,16 @@ function resize() {
   $(".canvas").animate({ height: window.innerHeight - 300 }, 150);
 }
 
+function checkMobile() {
+  if ($.browser.msie) {
+    window.location.href = 'incompatible.html';
+  }
+
+}
+
 $(document).ready(function() {
+
+  checkMobile();
 
   $(".canvas").css({ height: window.innerHeight - 300});
 
