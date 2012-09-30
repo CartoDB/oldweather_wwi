@@ -4,10 +4,12 @@ var CONFIG = {
   minZoom: 1,
   maxZoom: 5
 };
+var IOS = false;
 
 // adjust Zoom for iOS devices
 if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPad/i))) {
    CONFIG.zoom = 1;
+   IOS = true;
 }
 
 
