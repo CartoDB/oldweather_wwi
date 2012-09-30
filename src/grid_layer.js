@@ -324,21 +324,20 @@ TimePlayer.prototype.render_time = function(tile, coord, zoom) {
             ctx.fillRect(xc[i]-offset, yc[i]-offset, pixel_size_trail_squa, pixel_size_trail_squa);            
           }        
         }  
-        if(!IOS){
-          cell = cells.values[this.MAX_UNITS*i + month-2];              
-          if(cell) {
-            ci = cell == 0 ? 0 : Math.floor((colors.length-1) * (Math.log(cell)/this.MAX_VALUE_LOG));
-            if (ci != cu) {
-              cu = ci < colors.length? ci : cu;
-              ctx.fillStyle = colors[cu];
-            }
-            if(this.options.point_type == 'circle'){
-              ctx.drawImage(self.sprite_3[cu],xc[i]-pixel_size, yc[i]-pixel_size)
-            } else if(this.options.point_type == 'square') {
-              ctx.fillRect(xc[i]-offset, yc[i]-offset, pixel_size, pixel_size);            
-            }          
-          }                  
-        }
+  
+        cell = cells.values[this.MAX_UNITS*i + month-2];              
+        if(cell) {
+          ci = cell == 0 ? 0 : Math.floor((colors.length-1) * (Math.log(cell)/this.MAX_VALUE_LOG));
+          if (ci != cu) {
+            cu = ci < colors.length? ci : cu;
+            ctx.fillStyle = colors[cu];
+          }
+          if(this.options.point_type == 'circle'){
+            ctx.drawImage(self.sprite_3[cu],xc[i]-pixel_size, yc[i]-pixel_size)
+          } else if(this.options.point_type == 'square') {
+            ctx.fillRect(xc[i]-offset, yc[i]-offset, pixel_size, pixel_size);            
+          }          
+        }        
       }      
     }  
 };
