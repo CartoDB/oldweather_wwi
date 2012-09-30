@@ -1,10 +1,15 @@
-var
-CONFIG = {
+var CONFIG = {
   center: new google.maps.LatLng( 30.95940879245423, -0.609375),
   zoom: 2,
   minZoom: 1,
   maxZoom: 5
 };
+
+// adjust Zoom for iOS devices
+if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPad/i))) {
+   CONFIG.zoom = 1;
+}
+
 
 var OldWeatherMap = Class.extend({
   initMap: function() {
