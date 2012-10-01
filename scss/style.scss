@@ -270,7 +270,7 @@ body.old  {
     font-family: Helvetica, Verdana, Arial;
     font-size: 11px;
     opacity: 0.7;
-    width: 380px;
+    width: 290px;
     color: #333;
     margin-top: 30px;
     margin-bottom: 10px;
@@ -296,12 +296,13 @@ body.old  {
       float: right;
       text-align: left;
       font-weight:bold;
+      margin-right: 50px;
     }
 
     .text {
       float: right;
       text-align: left;
-      margin-right: 90px;
+      margin-right: 50px;
     }
 
   }
@@ -312,12 +313,13 @@ body.old  {
       float: left;
       text-align: right;
       font-weight:bold;
+      margin-left: 50px;
     }
 
     .text {
       float: left;
       text-align: right;
-      margin-left: 90px;
+      margin-left: 50px;
     }
 
   }
@@ -426,14 +428,6 @@ body.old  {
   }
 }
 
-/*2000 260 1740 870 43
-1800 260      770 42
-1600 260      670 41
-1400 260      570 40
-1200 260      470 39
-1000 260      370 37
-800  260      270 33*/
-
 @media all and (min-width: 799px) {
   .bigRibbon {
     &.right {
@@ -446,6 +440,20 @@ body.old  {
     }
   }
 }
+
+@media all and (min-width: 900px) {
+  .bigRibbon {
+    &.right {
+      width: 38%;
+      margin-left: 12%;
+    }
+    &.left {
+      width: 38%;
+      margin-right: 12%;
+    }
+  }
+}
+
 
 @media all and (min-width: 1000px) {
   .bigRibbon {
