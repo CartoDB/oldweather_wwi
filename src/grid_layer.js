@@ -23,7 +23,7 @@ function TimePlayer(min_date, end, step, options) {
     this.resolution = options.resolution;
     this.countby = options.countby
     //this.base_url = 'http://sql.wri-01.cartodb.com/api/v2/sql';
-    this.base_url = 'http://d2c5ry9dy1ewvi.cloudfront.net/api/v2/sql';
+    this.base_url = 'https://d2c5ry9dy1ewvi.cloudfront.net/api/v2/sql';
     this.options = options;
 }
 
